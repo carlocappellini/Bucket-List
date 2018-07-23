@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs/';
 })
 export class HomeService {
 
-  private goals = new BehaviorSubject<any>([' initial goal', 'another goal']);
+  private goals = new BehaviorSubject<any>([]);
 
   goal = this.goals.asObservable();
   constructor() { }
