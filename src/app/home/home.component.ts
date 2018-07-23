@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService} from '../home.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,10 +15,15 @@ export class HomeComponent implements OnInit {
     this.goals.push(this.goalText);
     this.goalText = '';
     this.itemCount = this.goals.length;
+    this.homeService.changeGoal(this.goals);
+
 
   }
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.homeService.goal.subscribe(res => this.goals = res);
+    this.homeService.changeGoal(this.goals);
+  }
 
 }
