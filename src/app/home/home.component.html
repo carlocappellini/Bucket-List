@@ -3,19 +3,28 @@
     <p>Add a bucket item</p>
   </div>
   <div class="col">
-    <p>Your bucket list</p>
+    <p>Your bucket list<span>( {{ itemCount }} )</span></p>
   </div>
 </div>
 <div class="container-light">
   <div class="col">
     <p>What to do you want to do in your life?</p>
     <form>
-      <input type="text" class="text" ([ngModel)] = "field">
-      <input type="submit" value="add item">
+      <input type="text" class="text" name="goalText"[(ngModel)]="goalText">
+
+     <br><span>{{ goalText }}</span>
+
+      <input type="submit" value="Add item" (click)="addItem()">
+
     </form>
-  </div>
-  <div class="col">
-    <p>Your bucket list</p>
+
+    <p class="life-container" *ngFor="let goal of goals">
+      {{goal}}
+    </p>
+
+
+
+
   </div>
 
 </div>
